@@ -1,0 +1,36 @@
+[package]
+name = "tmp"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "tmp"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.30.1"
+anchor-spl = "0.30.1"
+solana-program = "1.16"
+
+# Orca Whirlpools
+whirlpool = { git = "https://github.com/orca-so/whirlpools", branch = "main", features = ["cpi"] }
+
+# Raydium
+raydium-contract-instructions = { git = "https://github.com/raydium-io/raydium-contract-instructions", branch = "master" }
+
+# Jupiter
+jupiter-cpi = "4.0.3"
+
+# Meteora (commented out due to repository issues)
+# meteora = { git = "https://github.com/meteora-ag/meteora", branch = "main" }
+
+[dev-dependencies]
+solana-program-test = "1.16"
